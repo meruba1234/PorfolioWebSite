@@ -4,8 +4,25 @@ body {
     margin: 0;
     padding: 0;
     line-height: 1.6;
-    background-color: #f4f4f4; /* 背景色の変更 */
+    background-color: transparent; /* 背景色の変更 */
     padding-bottom: 60px; /* フッターとの間に余白を確保 */
+}
+
+.to-top {
+    position: fixed; /* ボタンを画面に固定 */
+    bottom: 20px; /* 下から20pxの位置に配置 */
+    right: 20px; /* 右から20pxの位置に配置 */
+    padding: 10px 15px; /* パディングを適用 */
+    background-color: #0088cc; /* 背景色 */
+    color: #ffffff; /* テキスト色 */
+    text-decoration: none; /* 下線を非表示 */
+    border-radius: 5px; /* 角を丸く */
+    font-size: 16px; /* フォントサイズ */
+    z-index: 1001; /* ヘッダーよりも上に表示 */
+}
+
+.to-top:hover {
+    background-color: #005577; /* ホバー時の背景色 */
 }
 
 /* コンテナのスタイル */
@@ -13,60 +30,26 @@ body {
     display: flex;
 }
 
-/* サイドバーのスタイル */
-.sidebar {
-    width: 10%; /* サイドバーの幅 */
-    background-color: #333; /* サイドバーの背景色を濃いグレーに変更 */
-    color: #f4f4f4; /* サイドバー内のテキスト色を明るく */
-    position: fixed; /* サイドバーを画面に固定 */
-    height: 100vh;
-}
-
-.sidebar nav ul a {
-    text-decoration: none;
-    color: #f4f4f4; /* リンクのテキスト色を明るく */
-    display: block;
-    padding: 10px; /* リンクのパディングを調整 */
-    transition: background-color 0.3s; /* 背景色の変更にトランジションを追加 */
-    border-radius: 5px; /* 角丸 */
-}
-
-.sidebar nav ul a:hover {
-    background-color: #555; /* ホバー時の背景色を変更 */
-    color: #fff; /* ホバー時のテキスト色を白に */
-}
-
-.to-top {
-    display: block;
-    padding: 10px;
-    background-color: #0088cc; /* 明るい背景色に変更 */
-    color: #fff; /* テキスト色は白のまま */
-    text-decoration: none; /* テキストの下線を消す */
-    margin-top: 20px; /* 上部の余白 */
-    border-radius: 5px; /* 角丸 */
-    transition: background-color 0.3s; /* 背景色の変更にトランジションを追加 */
-}
-
-.to-top:hover {
-    background-color: #0077b3; /* ホバー時の背景色を少し暗く */
-}
-
-
 /* メインコンテンツのスタイル */
 .main-content {
     flex-grow: 1; /* 利用可能なスペースをすべて使用 */
-    margin-left: 10%; /* サイドバーの幅に合わせて左マージンを設定 */
     background-color: #fff; /* メインコンテンツの背景色を白に設定（必要に応じて変更） */
+    margin-top: 100px; /* ヘッダーの高さに合わせて上マージンを設定 */
 }
 
 
 /* ヘッダーのスタイル */
 header {
-    background: #444; /* 色の微調整 */
-    color: #f4f4f4; /* テキスト色を明るく */
-    padding: 20px 0; /* 上下のパディングを増やす */
-    min-height: 80px; /* 少し高さを増やす */
-    border-bottom: #0088cc 4px solid; /* 色と太さの調整 */
+    background: #444;
+    color: #f4f4f4;
+    padding: 10px 0; /* 上下のパディング */
+    min-height: 40px; /* 高さ*/
+    border-bottom: #0088cc 4px solid;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000; /* 他の要素より前面に表示 */
 }
 
 header h1 {
@@ -75,22 +58,28 @@ header h1 {
     font-size: 24px; /* フォントサイズを調整 */
 }
 
+nav {
+    margin-top: 0px; /* navの上のマージンを減らす */
+}
+
 /* ナビゲーションメニューのスタイル */
 nav ul {
     padding: 0;
     list-style: none;
     text-align: center;
+    margin-top: 0; /* ulの上のマージンをなくす */
+    padding-top: 0; /* パディングもなくす */
 }
 
 nav ul li {
-    display: inline-block; /* インラインからインラインブロックへ変更 */
-    margin: 0 20px; /* マージンを増やす */
+    display: inline-block; /* インラインブロックへ変更 */
+    margin: 0 0px; /* マージンを増やす */
 }
 
 nav ul li a {
     text-decoration: none;
     color: #f4f4f4;
-    padding: 10px 15px; /* パディングを増やす */
+    padding: 5px 5px; /* パディングを増やす */
     border-radius: 10px; /* 角の丸みを増やす */
     transition: background-color 0.3s, transform 0.3s; /* transform効果を追加 */
 }
@@ -102,7 +91,7 @@ nav ul li a:hover {
 
 /* セクションのスタイル */
 section {
-    background: #fff;
+    background: transparent;
     padding: 20px;
     margin: 20px auto; /* 上下マージンを均等に */
     border-radius: 10px; /* 角の丸みを増やす */
@@ -116,11 +105,11 @@ footer {
     color: #f4f4f4;
     text-align: center;
     padding: 3px 0; /* 上下のパディングを調整 */
-    margin-left: 10%; /* サイドバーの幅に合わせて左マージンを設定 */
     position: fixed;
     left: 0;
     bottom: 0;
     width: 100%;
+    
 }
 
 

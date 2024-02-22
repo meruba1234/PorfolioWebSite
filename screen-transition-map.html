@@ -8,18 +8,6 @@
 </head>
 <body>
     <div class="container">
-        <aside class="sidebar">
-            <nav>
-                <ul>
-                    <a href="portfolio.html">ホーム</a>
-                    <a href="itskills.html">ITスキル</a>
-                    <a href="android-app.html">アプリ紹介</a>
-                    <a href="screen-transition-map.html">画面遷移マップ</a>
-                    <a href="contact.html">お問い合わせ</a></li>
-                    <a href="#" class="to-top">ページ上部へ戻る</a>
-                </ul>
-            </nav>
-        </aside>
         <div class="main-content">
             <header>
                 <h1>SkillShowcase</h1>
@@ -173,8 +161,46 @@
             <footer>
                 <p>© 2024 SkillShowcase. All rights reserved.</p>
             </footer>
+            <!-- ページの先頭に戻るボタン -->
+            <a href="#" class="to-top">↑ Top</a>
         </div>
-    </div>        
+    </div>
+    <script>
+        // スクロールに応じてボタンを表示または非表示にする関数
+        function toggleToTopButton() {
+            var toTopButton = document.querySelector('.to-top');
+            
+            if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+                toTopButton.style.display = "block";
+            } else {
+                toTopButton.style.display = "none";
+            }
+        }
+        
+        // スクロールイベントに関数をバインド
+        window.onscroll = function() { toggleToTopButton(); };
+        
+        // ボタンクリックでページの先頭にスムーススクロールする
+        document.querySelector('.to-top').addEventListener('click', function(e) {
+            e.preventDefault();
+            window.scrollTo({top: 0, behavior: 'smooth'});
+        });
+
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+
+                var targetId = this.getAttribute('href');
+                var targetElement = document.querySelector(targetId);
+                var headerHeight = document.querySelector('header').offsetHeight;
+
+                window.scrollTo({
+                    top: targetElement.offsetTop - headerHeight - 20, // 20pxは余白
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>         
 </body>
 </html>
 
