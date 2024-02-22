@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ポートフォリオWEBサイト SkillShowcase</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <aside class="sidebar">
+            <nav>
+                <ul>
+                    <a href="portfolio.html">ホーム</a>
+                    <a href="itskills.html">ITスキル</a>
+                    <a href="android-app.html">アプリ紹介</a>
+                    <a href="screen-transition-map.html">画面遷移マップ</a>
+                    <a href="contact.html">お問い合わせ</a></li>
+                    <a href="#" class="to-top">ページ上部へ戻る</a>
+                </ul>
+            </nav>
+        </aside>
+        <div class="main-content">
+            <header>
+                <h1>SkillShowcase</h1>
+                <nav>
+                    <ul>
+                        <li><a href="portfolio.html">ホーム</a></li>
+                        <li><a href="itskills.html">ITスキル</a></li>
+                        <li><a href="android-app.html">アプリ紹介</a></li>
+                        <li><a href="screen-transition-map.html">画面遷移マップ</a></li>
+                        <li><a href="contact.html">お問い合わせ</a></li> 
+                    </ul>
+                </nav>
+            </header>
+
+            <main>
+                <!-- アプリの概要 -->
+                <section>
+                    <h2>アプリの概要</h2>
+                    <p>　本アプリは、「指をあまり動かさずに楽しめるクイズアプリ」を目指して開発されました。4択の選択肢から指をあまり動かさずに利用できる操作性にこだわりました。</p>
+                    <p>　主な機能として、4択クイズ、カウントダウンタイマー、経過時間と正解数を記録し、グラフで集計する機能を備えています。クイズは学習の確認や暇つぶしに最適であり、カウントダウンタイマーは緊張感を得るためのものです。経過時間と正解数のグラフ集計機能により、ユーザーは自分の学習進捗を視覚的に確認できます。</p>
+                    <p>　開発背景として、多くのクイズアプリが存在する中で、よりサクサクと回答できるアプリを作りたいという思いから、このアプリを開発しました。</p>
+                    <p>　このアプリは、通勤中や休憩時間などの短い時間での使用を想定しています。簡単な操作で素早くクイズを解き、自分の知識を試すことができます。また、長期的に使用することで、学習の進捗をグラフで確認し、モチベーションの維持にも役立ちます。</p>
+                    
+                    <!-- 機能と機能概要の表 -->
+                    <table>
+                        <tr>
+                            <th>機能</th>
+                            <th>機能概要</th>
+                        </tr>
+                        <tr>
+                            <td>4択クイズ</td>
+                            <td>ユーザーは4つの選択肢から1つを選んで回答します。</td>
+                        </tr>
+                        <tr>
+                            <td>カウントダウンタイマー</td>
+                            <td>各クイズには15秒の時間制限があり、緊張感を高めます。</td>
+                        </tr>
+                        <tr>
+                            <td>経過時間と正解数の記録</td>
+                            <td>ユーザーのクイズ解答時間と正解数を記録し、グラフで進捗を可視化します。</td>
+                        </tr>
+                    </table>
+                    <!-- 4択クイズ機能の詳細な説明 -->
+                    <h3>4択クイズ機能について</h3>
+                    <p>　本アプリの4択クイズ機能では、ユーザーが提供された4つの選択肢の中から1つを選んで回答します。選択は以下のルールに従って処理されます：</p>
+                    <ol>
+                        <li><strong>初回クリック：</strong>ユーザーが最初に選択した回答が正解か不正解かを判断し、この結果はデータベースに記録されます。この初回のクリックがユーザーの回答としてカウントされ、クイズの成績に影響します。</li>
+                        <li><strong>2回目以降のクリック：</strong>初回の回答後、ユーザーが他の選択肢をクリックしても、これらのクリックは成績の計算には関与しません。これにより、ユーザーは自分の選んだ回答に自信が持てない場合に、他の選択肢を試してみることができますが、成績には影響しません。</li>
+                        <li><strong>問題の進行：</strong>ユーザーが正解の選択肢をクリックした後、さらに任意の選択肢をクリックすることで次の問題へと進むことができます。正解を確認しないと次の問題に進めないため、正しい知識の習得に役立ちます。</li>
+                    </ol>
+
+                    <p>　このシステムにより、ユーザーは自分の知識をテストしつつ、学習の進捗をリアルタイムで確認することができます。</p>
+
+                </section>
+
+                <!-- 画面遷移の紹介 -->
+                <section>   
+
+                    <h2>画面遷移の紹介</h2>
+                    <p>　アプリ内の主な画面遷移を下記のリンク先で掲載します。各画面の概要と、その画面でできることを簡単に説明します。</p>
+                    <!-- 画面遷移マップページへのリンク -->
+                    <a href="screen-transition-map.html">画面遷移マップを見る</a>
+                </section>    
+
+                <!-- ダウンロード方法 -->
+                <section>
+                    <h2>ダウンロード方法</h2>
+                    <p>アプリをダウンロードするには、以下のURLからアクセスしてください。</p>
+                    <p><a href="app-release.apk">クリックしてダウンロード</a></p>
+                </section>
+                <!-- ソースコード -->
+                <section>
+                    <h2>ソースコード</h2>
+                    <p>プロジェクトのソースコードを閲覧するには、以下のGitHubリポジトリを訪問してください。</p>
+                    <p><a href="https://github.com/meruba1234/android-application">GitHubで見る</a></p>
+                </section>
+            </main>
+
+            <footer>
+                <p>© 2024 SkillShowcase. All rights reserved.</p>
+            </footer>
+        </div>
+    </div>
+</body>
+</html>
