@@ -42,7 +42,7 @@ body {
 header {
     background: #444;
     color: #f4f4f4;
-    padding: 10px 0; /* 上下のパディング */
+    padding-top: 5px; /* 上側のパディングを5pxに設定 */
     min-height: 40px; /* 高さ*/
     border-bottom: #0088cc 4px solid;
     position: fixed;
@@ -79,7 +79,7 @@ nav ul li {
 nav ul li a {
     text-decoration: none;
     color: #f4f4f4;
-    padding: 5px 5px; /* パディングを増やす */
+    padding: 0px 5px; /* パディングを増やす */
     border-radius: 10px; /* 角の丸みを増やす */
     transition: background-color 0.3s, transform 0.3s; /* transform効果を追加 */
 }
@@ -93,7 +93,7 @@ nav ul li a:hover {
 section {
     background: transparent;
     padding: 20px;
-    margin: 20px auto; /* 上下マージンを均等に */
+    margin: 10px auto; /* 上下マージンを均等に */
     border-radius: 10px; /* 角の丸みを増やす */
     box-shadow: 0 5px 15px rgba(0,0,0,0.1); /* 影の調整 */
     max-width: 1450px; /* 最大幅を設定 */
@@ -189,7 +189,3 @@ tr:hover {
     border-left: 20px solid black; /* 右向きの矢印 */
     margin: 0 20px; /* 矢印の左右のマージン */
 }
-
-
-
-
