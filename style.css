@@ -115,7 +115,7 @@ footer {
     background: #444; /* 色の微調整 */
     color: #f4f4f4;
     text-align: center;
-    padding: 3px 0; /* 上下のパディングを調整 */
+    padding: 3px 3px; /* 上下、左右のパディングを調整 */
     position: fixed;
     left: 0;
     bottom: 0;
