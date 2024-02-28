@@ -62,6 +62,53 @@ nav {
     margin-top: 0px; /* navの上のマージンを減らす */
 }
 
+/* ドロップダウンボタンのスタイル */
+.dropbtn {
+    position: relative; /* 疑似要素の基準点 */
+    display: inline-block; /* コンテンツの幅に合わせる */
+    cursor: pointer;
+}
+
+/* 下向き三角形のスタイル */
+.dropbtn:after {
+    content: "";
+    position: absolute;
+    top: 100%; /* ボタンの下端から配置 */
+    left: 50%; /* 中央に配置 */
+    margin-left: -6px; /* 三角形の幅の半分で中央寄せの調整。サイズが大きくなったので、この値も調整します */
+    width: 0;
+    height: 0;
+    border-left: 10px solid transparent; /* 左側の透明な境界を大きく */
+    border-right: 10px solid transparent; /* 右側の透明な境界を大きく */
+    border-top: 10px solid #0088cc; /* 上向きの三角形（実際には下向きに見える）の色とサイズを変更 */
+}
+
+/* ドロップダウンコンテンツ（隠れている）のスタイル */
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+}
+
+/* ドロップダウンリンクのスタイル */
+.dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+
+/* ドロップダウンリンクにカーソルを合わせると色が変わる */
+.dropdown-content a:hover {background-color: #f1f1f1}
+
+/* ドロップダウンがホバーされたときにドロップダウンメニューを表示 */
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
 /* ナビゲーションメニューのスタイル */
 nav ul {
     padding: 0;
@@ -109,7 +156,6 @@ footer {
     left: 0;
     bottom: 0;
     width: 100%;
-    
 }
 
 

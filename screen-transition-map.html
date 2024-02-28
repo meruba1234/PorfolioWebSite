@@ -186,16 +186,17 @@
             window.scrollTo({top: 0, behavior: 'smooth'});
         });
 
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        // セクションがヘッダーに隠れないようにスクロールする
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => { // href属性が#で始まる全てのアンカーリンクを対象にする
             anchor.addEventListener('click', function(e) {
                 e.preventDefault();
 
                 var targetId = this.getAttribute('href');
                 var targetElement = document.querySelector(targetId);
-                var headerHeight = document.querySelector('header').offsetHeight;
+                var headerHeight = document.querySelector('header').offsetHeight;// ヘッダーの高さを取得
 
                 window.scrollTo({
-                    top: targetElement.offsetTop - headerHeight - 20, // 20pxは余白
+                    top: targetElement.offsetTop - headerHeight - 20, // 20pxは余白 // ヘッダーの高さに加えて20pxの余白をオフセット
                     behavior: 'smooth'
                 });
             });

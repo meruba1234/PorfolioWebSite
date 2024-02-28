@@ -15,7 +15,20 @@
                     <ul>
                         <li><a href="portfolio.html">ホーム</a></li>
                         <li><a href="itskills.html">ITスキル</a></li>
-                        <li><a href="android-app.html">アプリ紹介</a></li>
+                        <li class="dropdown">
+                            <a href="javascript:void(0)" class="dropbtn">アプリ紹介</a>
+                            <div class="dropdown-content">
+                                <a href="#app-overview">アプリの概要</a>
+                                <a href="#screen-transitions">画面遷移の紹介</a>
+                                <a href="#download-instructions">ダウンロードの方法</a>
+                                <a href="#source-code">ソースコード</a>
+                                <a href="#network-configuration">ネットワーク構成図</a>
+                                <a href="#er-diagram">ER図</a>
+                                <a href="#table-description">テーブルの説明</a>
+                                <a href="#quiz-questions-operations">quiz_questionsテーブルの操作</a>
+                                <a href="#statistics-operations">statisticsテーブルの操作</a>
+                            </div>
+                        </li>
                         <li><a href="screen-transition-map.html">画面遷移マップ</a></li>
                         <li><a href="contact.html">お問い合わせ</a></li> 
                     </ul>
@@ -24,7 +37,7 @@
 
             <main>
                 <!-- アプリの概要 -->
-                <section>
+                <section id="app-overview">
                     <h2>アプリの概要</h2>
                     <p>　本アプリは、「指をあまり動かさずに楽しめるクイズアプリ」を目指して開発されました。4択の選択肢から指をあまり動かさずに利用できる操作性にこだわりました。</p>
                     <p>　主な機能として、4択クイズ、カウントダウンタイマー、経過時間と正解数を記録し、グラフで集計する機能を備えています。クイズは学習の確認や暇つぶしに最適であり、カウントダウンタイマーは緊張感を得るためのものです。経過時間と正解数のグラフ集計機能により、ユーザーは自分の学習進捗を視覚的に確認できます。</p>
@@ -64,7 +77,7 @@
                 </section>
 
                 <!-- 画面遷移の紹介 -->
-                <section>   
+                <section id="screen-transitions">   
 
                     <h2>画面遷移の紹介</h2>
                     <p>　アプリ内の主な画面遷移を下記のリンク先で掲載します。各画面の概要と、その画面でできることを簡単に説明します。</p>
@@ -73,16 +86,338 @@
                 </section>    
 
                 <!-- ダウンロード方法 -->
-                <section>
+                <section id="download-instructions">
                     <h2>ダウンロード方法</h2>
                     <p>アプリをダウンロードするには、以下のURLからアクセスしてください。</p>
                     <p><a href="app-release.apk">クリックしてダウンロード</a></p>
                 </section>
+
                 <!-- ソースコード -->
-                <section>
+                <section id="source-code">
                     <h2>ソースコード</h2>
                     <p>プロジェクトのソースコードを閲覧するには、以下のGitHubリポジトリを訪問してください。</p>
                     <p><a href="https://github.com/meruba1234/android-application">GitHubで見る</a></p>
+                </section>
+
+                <!-- ネットワーク構成図 -->
+                <section id="network-configuration">
+                    <h2>問題データ更新時のネットワーク構成図</h2>
+                    <p>初回ダウンロード以降に問題データを更新する場合には、インターネットを通じて更新データをダウンロードしていただきます。この機能は未実装ですが、将来的にユーザーが最新の問題データを容易に取得できるようにする計画です。</p>
+                    <div style="display:flex;justify-content:space-around;align-items:center;">
+                        <!-- Webサーバーをレンタルする場合 -->
+                        <div>
+                            <h3>Webサーバーをレンタルする場合</h3>
+                            <img src="Network-page2.drawio.png" alt="レンタルサーバーのネットワーク構成図" style="max-width:100%;height:auto;">
+                            <p>レンタルサーバーを使用する場合、サービスプロバイダが提供するサーバー上にWebサイトのデータを配置します。これにより、メンテナンスやセキュリティ対策などの面で利便性が高まります。</p>
+                        </div>
+                
+                        <!-- Apacheを使って自分のPCでWebサーバーを立てる場合 -->
+                        <div>
+                            <h3>自分のPCでWebサーバーを立てる場合</h3>
+                            <img src="Network-page1.drawio.png" alt="自宅PCのApacheサーバーのネットワーク構成図" style="max-width:100%;height:auto;">
+                            <p>Apacheを使用して自分のPC上にWebサーバーを構築する場合、フルコントロールが可能ですが、セキュリティの設定や電力供給などの面で自己管理が必要になります。</p>
+                        </div>
+                    </div>
+                </section>
+
+                <section id="er-diagram">
+                    <h2>ER図</h2>
+                    <!-- ER図の説明 -->
+                    <p>以下のER図は、異なるデータベースに格納されたテーブルを示しており、各データベースが特定の機能に特化し、独立してデータを管理しています。
+                    <br>テーブルがそれぞれ独立しているため、今回のER図にはテーブル間の関連性を示す線がありません。</p>
+                    <!-- データベースの役割の説明 -->
+                    <p><strong>quiz_database:</strong> このデータベースは問題文と選択肢、正答を管理しています。</p>
+                    <p><strong>Statistics.db:</strong> このデータベースはクイズに関する統計情報を管理するために特化しています。回答にかかった時間と正解数で、ユーザーのパフォーマンスを追跡し、分析するための情報を保持します。</p>    
+
+                    <!-- ER図の画像 -->
+                    <img src="ERD.png" alt="ER図">
+                </section>
+
+                <section id="table-description">
+                    <h2>テーブルの説明</h2>
+                    <h3>quiz_questions: 問題テーブル</h3>
+                    <table border="1">
+                        <tr>
+                            <th>項目名</th>
+                            <th>型</th>
+                            <th>説明</th>
+                        </tr>
+                        <tr>
+                            <td>id</td>
+                            <td>INT</td>
+                            <td>タブ名とボタンIDから決められる一意の識別子</td>
+                        </tr>
+                        <tr>
+                            <td>question</td>
+                            <td>TEXT</td>
+                            <td>問題文のテキスト</td>
+                        </tr>
+                        <tr>
+                            <td>option1</td>
+                            <td>TEXT</td>
+                            <td>選択肢1のテキスト</td>
+                        </tr>
+                        <tr>
+                            <td>option2</td>
+                            <td>TEXT</td>
+                            <td>選択肢2のテキスト</td>
+                        </tr>
+                        <tr>
+                            <td>option3</td>
+                            <td>TEXT</td>
+                            <td>選択肢3のテキスト</td>
+                        </tr>
+                        <tr>
+                            <td>option4</td>
+                            <td>TEXT</td>
+                            <td>選択肢4のテキスト</td>
+                        </tr>
+                        <tr>
+                            <td>correct_answer</td>
+                            <td>INT</td>
+                            <td>正答ボタンのID</td>
+                        </tr>
+                    </table>
+                
+                    <h3>statistics: 統計テーブル</h3>
+                    <table border="1">
+                        <tr>
+                            <th>項目名</th>
+                            <th>型</th>
+                            <th>説明</th>
+                        </tr>
+                        <tr>
+                            <td>id</td>
+                            <td>INT</td>
+                            <td>レコードを特定するための一意の識別子</td>
+                        </tr>
+                        <tr>
+                            <td>timeTaken</td>
+                            <td>INT</td>
+                            <td>ボタンに含まれる問題データを解き終わるまでの経過時間</td>
+                        </tr>
+                        <tr>
+                            <td>correctAnswers</td>
+                            <td>INT</td>
+                            <td>初回の選択で正解した回数</td>
+                        </tr>
+                        <tr>
+                            <td>buttonId</td>
+                            <td>TEXT</td>
+                            <td>メイン画面で選択されたボタンのID</td>
+                        </tr>
+                        <tr>
+                            <td>tabName</td>
+                            <td>TEXT</td>
+                            <td>メイン画面で選択されたタブの名前</td>
+                        </tr>
+                        <tr>
+                            <td>timestamps</td>
+                            <td>TIMESTAMP</td>
+                            <td>メイン画面のボタンを選択したときの日時</td>
+                        </tr>
+                    </table>
+                </section>
+
+                <section id="quiz-questions-operations">
+                    <h2>quiz_questionsテーブルの操作</h2>
+                    <h3>テーブルの作成</h3>
+<pre><code>// アプリのインストール時に一回だけ行われるメソッド
+//　もう一度行いたい場合は、アンインストールしてから再度インストールする。
+@Override
+public void onCreate(SQLiteDatabase db) {
+    // クイズデータを格納するためのテーブルを作成
+    String CREATE_QUIZ_TABLE =
+            "CREATE TABLE quiz_questions (" +
+            "id INTEGER PRIMARY KEY AUTOINCREMENT," +
+            "question TEXT NOT NULL," +
+            "option1 TEXT NOT NULL," +
+            "option2 TEXT NOT NULL," +
+            "option3 TEXT NOT NULL," +
+            "option4 TEXT NOT NULL," +
+            "correct_answer INTEGER)";
+    db.execSQL(CREATE_QUIZ_TABLE);
+
+    // JSONファイルから初期データを挿入
+    insertInitialData(db);
+}</code></pre>
+
+    <h3>データの挿入</h3>
+<pre><code>// 初期データをデータベースに挿入するメソッド
+private void insertInitialData(SQLiteDatabase db) {
+    try {
+        // JSONファイルを読み込む
+        InputStream is = context.getAssets().open("initial_data.json");
+        // BufferReaderを使って、ファイル内容を文字列として読み込む
+        BufferedReader reader = new BufferedReader(new InputStreamReader(is));
+        StringBuilder sb = new StringBuilder();
+        String line;
+        while ((line = reader.readLine()) != null) {
+            sb.append(line);
+        }
+        // 読み込んだ文字列をJSONArrayインスタンスに変換して、
+        // JSON配列の各要素にアクセスできるようにする。
+        JSONArray jsonArray = new JSONArray(sb.toString());
+        // 問題文と選択肢、正解の要素番号を取得する。
+        for (int i = 0; i < jsonArray.length(); i++) {
+            JSONObject jsonObject = jsonArray.getJSONObject(i);
+            String question = jsonObject.getString("question");
+            JSONArray choices = jsonObject.getJSONArray("choices");
+            int correctAnswer = jsonObject.getInt("correct_answer");
+
+            <strong>// データベースに挿入
+            ContentValues values = new ContentValues();
+            values.put("question", question);
+            for (int j = 0; j < choices.length(); j++) {
+                values.put("option" + (j + 1), choices.getString(j));
+            }
+            values.put("correct_answer", correctAnswer);
+            db.insert("quiz_questions", null, values);</strong>
+        }
+    } catch (
+            IOException |
+            JSONException e) {
+        Log.e("MyApp", "insertInitialDataでエラーが発生しました。");
+        e.printStackTrace();
+    }
+}</code></pre>
+
+    <h3>データのクエリ</h3>
+<pre><code>// 検索クエリに基づいてデータベースから質問を検索するメソッド
+// 問題文に基づいてデータを検索
+public List<Data_Quiz> searchQuizQuestions(String query) {
+    List<Data_Quiz> matchedQuestions = new ArrayList<>();
+    SQLiteDatabase db = this.getReadableDatabase();
+
+    Cursor cursor = db.rawQuery("SELECT * FROM quiz_questions WHERE question LIKE ?", new String[]{"%" + query + "%"});
+
+    if (cursor.moveToFirst()) {
+        do {
+            int questionColumnIndex = cursor.getColumnIndex("question");
+            if (questionColumnIndex != -1) {
+                String questionText = cursor.getString(questionColumnIndex);
+                List<String> choices = new ArrayList<>();
+                for (int i = 1; i <= 4; i++) {
+                    int choiceColumnIndex = cursor.getColumnIndex("option" + i);
+                    if (choiceColumnIndex != -1) {
+                        choices.add(cursor.getString(choiceColumnIndex));
+                    }
+                }
+                int correctAnswerColumnIndex = cursor.getColumnIndex("correct_answer");
+                if (correctAnswerColumnIndex != -1) {
+                    int correctAnswer = cursor.getInt(correctAnswerColumnIndex);
+                    matchedQuestions.add(new Data_Quiz(questionText, choices, correctAnswer));
+                }
+            }
+        } while (cursor.moveToNext());
+    }
+    cursor.close();
+    return matchedQuestions;
+}</code></pre>
+                <h3>データベースの更新</h3>
+<pre><code>// データベースをバージョンアップしたときに、テーブルを再作成
+@Override
+public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
+    if (db != null) {
+        db.execSQL("DROP TABLE IF EXISTS quiz_questions");
+        super.onOpen(db);
+    }
+}</code></pre>
+                </section>
+                <section id="statistics-operations">
+                    <h2>statisticsテーブルの操作</h2>
+<pre><code>private static final String DATABASE_NAME = "Statistics.db";// データベース名
+private static final String TABLE_NAME = "statistics"; //テーブル名
+private static final String COLUMN_ID = "id";
+private static final String COLUMN_TIME_TAKEN = "timeTaken"; //経過時間
+private static final String COLUMN_CORRECT_ANSWERS = "correctAnswers"; //正答数
+private static final String COLUMN_TAB_NAME = "tabName"; //選択されたタブ名
+private static final String COLUMN_BUTTON_ID = "buttonId"; //選択されたボタンID
+private static final String COLUMN_TIMESTAMP = "timestamps"; //各レコードがいつ追加されたかを記録するためのカラム(列)
+</code></pre>
+                    <h3>テーブルの作成</h3>
+<pre><code>// statisticsテーブルの作成
+public void onCreate(SQLiteDatabase db) {
+    String CREATE_STATISTICS_TABLE = <Strong>"CREATE TABLE " + TABLE_NAME + "("
+            + COLUMN_ID + " INTEGER PRIMARY KEY AUTOINCREMENT,"
+            + COLUMN_TIME_TAKEN + " INTEGER,"
+            + COLUMN_CORRECT_ANSWERS + " INTEGER,"
+            + COLUMN_BUTTON_ID + " TEXT,"
+            + COLUMN_TAB_NAME + " TEXT,"
+            + COLUMN_TIMESTAMP + " TIMESTAMP DEFAULT CURRENT_TIMESTAMP"
+            + ")";
+    db.execSQL(CREATE_STATISTICS_TABLE);</Strong>
+}</code></pre>
+                
+                    <h3>データの挿入</h3>
+<pre><code>//クイズ完了時に統計データを挿入
+public void addStatistics(int timeTaken, int correctAnswers, String buttonId, String tabName) {
+    SQLiteDatabase db = this.getWritableDatabase();
+
+    // 既存のレコード数をチェック
+    Cursor cursor = db.rawQuery("SELECT COUNT(*) FROM " + TABLE_NAME, null);
+    int count = 0;
+    if (cursor.moveToFirst()) {
+        count = cursor.getInt(0);
+    }
+    cursor.close();
+    // レコード数が10を超えていれば、最も古いレコードを削除
+    if (count >= 10) {
+        db.execSQL("DELETE FROM " + TABLE_NAME + " " +
+                "WHERE " + COLUMN_ID +
+                " IN (SELECT " + COLUMN_ID +
+                    " FROM " + TABLE_NAME +
+                    " ORDER BY " + COLUMN_TIMESTAMP +
+                    " ASC LIMIT " + (count - 9) + ")");
+    }
+
+    <strong>// 新しい統計データを挿入
+    ContentValues values = new ContentValues();
+    values.put(COLUMN_TIME_TAKEN, timeTaken); // 経過時間
+    values.put(COLUMN_CORRECT_ANSWERS, correctAnswers); // 正答数
+    values.put(COLUMN_BUTTON_ID, buttonId); // 選択されたボタンID
+    values.put(COLUMN_TAB_NAME, tabName); // 選択されたタブ名
+
+    try {
+        db.insert(TABLE_NAME, null, values);
+    }</strong> catch (Exception e) {
+        // 例外が発生した場合の処理
+        Log.e("Database", "Error while adding statistics", e);
+    } finally {
+        if (db != null) {
+            db.close();
+        }
+    }
+}</code></pre>
+                
+                    <h3>データのクエリ</h3>
+<pre><code>// tabNameとbuttonIdに基づいて統計データを取得するメソッド
+public Cursor getStatisticsForButtonAndTab(String buttonId, String tabName, int limit) {
+    SQLiteDatabase db = this.getReadableDatabase();
+
+    // SQLクエリを直接記述
+    String rawQuery = "SELECT * FROM " + TABLE_NAME +
+            " WHERE " + COLUMN_BUTTON_ID + " = ? AND " + COLUMN_TAB_NAME + " = ?" +
+            // COLUMN_BUTTON_IDと COLUMN_TAB_NAMEという2つのカラムに基づいて、フィルターをかけるための条件を設定
+            // ?はプレースホルダーと呼ぶ。
+            " ORDER BY " + COLUMN_TIMESTAMP + " ASC" +
+            " LIMIT " + limit; // 最新のデータから順にlimit件分取得する
+
+    // selectionArgs配列を用意して、SQLインジェクションを防ぐ
+    String[] selectionArgs = new String[] { buttonId, tabName };
+
+    <strong>// rawQueryメソッドを使用してクエリを実行し、Cursorを返す
+    return db.rawQuery(rawQuery, selectionArgs);</strong>
+}</code></pre>
+                
+                    <h3>データベースの更新</h3>
+<pre><code>// バージョンが変わった場合、既存のテーブルを削除後、再度テーブルを作成
+@Override
+public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
+    <strong>db.execSQL("DROP TABLE IF EXISTS " + TABLE_NAME);
+    onCreate(db);</strong>
+}
+</code></pre>
                 </section>
             </main>
 
@@ -112,6 +447,21 @@
         document.querySelector('.to-top').addEventListener('click', function(e) {
             e.preventDefault();
             window.scrollTo({top: 0, behavior: 'smooth'});
+        });
+
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+
+                var targetId = this.getAttribute('href');
+                var targetElement = document.querySelector(targetId);
+                var headerHeight = document.querySelector('header').offsetHeight;
+
+                window.scrollTo({
+                    top: targetElement.offsetTop - headerHeight - 20, // 20pxは余白
+                    behavior: 'smooth'
+                });
+            });
         });
     </script> 
 </body>
