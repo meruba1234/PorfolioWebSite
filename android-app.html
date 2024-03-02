@@ -20,16 +20,17 @@
                             <div class="dropdown-content">
                                 <a href="#app-overview">アプリの概要</a>
                                 <a href="#screen-transitions">画面遷移の紹介</a>
-                                <a href="#download-instructions">ダウンロードの方法</a>
+                                <a href="#download-instructions">アプリダウンロード</a>
                                 <a href="#source-code">ソースコード</a>
-                                <a href="#network-configuration">ネットワーク構成図</a>
+                                <a href="#json-details">JSONデータ</a>
                                 <a href="#er-diagram">ER図</a>
                                 <a href="#table-description">テーブルの説明</a>
                                 <a href="#quiz-questions-operations">quiz_questionsテーブルの操作</a>
                                 <a href="#statistics-operations">statisticsテーブルの操作</a>
+                                <a href="#network-configuration">ネットワーク構成図(未実装)</a>
+                                <a href="#admin-site">管理者サイト(未実装)</a>
                             </div>
                         </li>
-                        <li><a href="screen-transition-map.html">画面遷移マップ</a></li>
                         <li><a href="contact.html">お問い合わせ</a></li> 
                     </ul>
                 </nav>
@@ -43,7 +44,8 @@
                     <p>　主な機能として、4択クイズ、カウントダウンタイマー、経過時間と正解数を記録し、グラフで集計する機能を備えています。クイズは学習の確認や暇つぶしに最適であり、カウントダウンタイマーは緊張感を得るためのものです。経過時間と正解数のグラフ集計機能により、ユーザーは自分の学習進捗を視覚的に確認できます。</p>
                     <p>　開発背景として、多くのクイズアプリが存在する中で、よりサクサクと回答できるアプリを作りたいという思いから、このアプリを開発しました。</p>
                     <p>　このアプリは、通勤中や休憩時間などの短い時間での使用を想定しています。簡単な操作で素早くクイズを解き、自分の知識を試すことができます。また、長期的に使用することで、学習の進捗をグラフで確認し、モチベーションの維持にも役立ちます。</p>
-                    
+                    <p>　現在、同じようなUIで、Texを使った数学用のクイズアプリを作成中です。この数学クイズアプリでは、数式の表示に最適化されたTeX形式を採用しており、より専門的な学習ニーズにも応えられるように設計しています。ユーザーは数学の問題を解くことで、数学の知識を楽しく学ぶことができます。</p>
+
                     <!-- 機能と機能概要の表 -->
                     <table>
                         <tr>
@@ -88,8 +90,10 @@
                 <!-- ダウンロード方法 -->
                 <section id="download-instructions">
                     <h2>ダウンロード方法</h2>
-                    <p>アプリをダウンロードするには、以下のURLからアクセスしてください。</p>
-                    <p><a href="app-release.apk">クリックしてダウンロード</a></p>
+                    <p>以下のリンクから、最新版のアプリをダウンロードできます。</p>
+                    <p><a href="QuizVoyage.apk">クリックしてダウンロード</a></p>
+                    <p>開発中の数学用アプリに関心がある方は、下記のリンクからアクセスしてください。このバージョンでは、新しい数学の問題や機能がテスト段階で利用可能です。</p>
+                    <p><a href="QuizVoyageMath.apk">開発中の数学用アプリをダウンロード</a></p>
                 </section>
 
                 <!-- ソースコード -->
@@ -99,39 +103,56 @@
                     <p><a href="https://github.com/meruba1234/android-application">GitHubで見る</a></p>
                 </section>
 
-                <!-- ネットワーク構成図 -->
-                <section id="network-configuration">
-                    <h2>問題データ更新時のネットワーク構成図</h2>
-                    <p>初回ダウンロード以降に問題データを更新する場合には、インターネットを通じて更新データをダウンロードしていただきます。この機能は未実装ですが、将来的にユーザーが最新の問題データを容易に取得できるようにする計画です。</p>
-                    <div style="display:flex;justify-content:space-around;align-items:center;">
-                        <!-- Webサーバーをレンタルする場合 -->
-                        <div>
-                            <h3>Webサーバーをレンタルする場合</h3>
-                            <img src="Network-page2.drawio.png" alt="レンタルサーバーのネットワーク構成図" style="max-width:100%;height:auto;">
-                            <p>レンタルサーバーを使用する場合、サービスプロバイダが提供するサーバー上にWebサイトのデータを配置します。これにより、メンテナンスやセキュリティ対策などの面で利便性が高まります。</p>
-                        </div>
-                
-                        <!-- Apacheを使って自分のPCでWebサーバーを立てる場合 -->
-                        <div>
-                            <h3>自分のPCでWebサーバーを立てる場合</h3>
-                            <img src="Network-page1.drawio.png" alt="自宅PCのApacheサーバーのネットワーク構成図" style="max-width:100%;height:auto;">
-                            <p>Apacheを使用して自分のPC上にWebサーバーを構築する場合、フルコントロールが可能ですが、セキュリティの設定や電力供給などの面で自己管理が必要になります。</p>
-                        </div>
-                    </div>
+                <!-- JSONデータのこだわりと構造 -->
+                <section id="json-details">
+                    <h2>JSONデータ</h2>
+                    <p>このアプリは、問題データをJSON形式で管理しており、iOSやAndroidなどのプラットフォームを問わず利用可能です。JSON形式を採用することで、データの取得が簡単になり、さまざまな環境での使用に柔軟に対応できるようになっています。以下に、JSONデータ設計のこだわり点とその構造を説明します。</p>
+                    <h3>JSON構造の説明</h3>
+<pre>
+{
+    "tabs": [
+        {
+            "name": "タブ名",
+            "buttons": [
+                {
+                    "id": "ボタンのid", // button1~button10を入れられます。
+                    "title": "ボタン名",
+                    "questions": [
+                        {
+                        "question": "問題文",
+                        "choices": [
+                            "選択肢1",
+                            "選択肢2",
+                            "選択肢3",
+                            "選択肢4"
+                        ],
+                        "correct_answer": 0 // 正答の要素番号(0~3のうちから一つ)
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}
+</pre>
+                    <p>この構造を通じて、情報は整理され、エンドユーザーにとってアクセスしやすい形で提供されます。</p>
                 </section>
 
                 <section id="er-diagram">
                     <h2>ER図</h2>
+                    <!-- データベース構造の将来的な修正に関する計画 -->
+                    <p>現状として、アプリは理想通りに動きますが、データベースの構造を修正したほうがわかりやすく、追加機能も作りやすいので、<strong>今後データベースの構造を修正し、正規化もする予定です。</strong>タブ名とボタンIDの複合キーから問題リストのidを作成します。その問題リストのidと、統計データ内で使われるautoincrementのidの複合キーで統計データを特定できるようにします。そして、タブごと、ボタンごとの過去の学習データをまとめて見られるようにします。</p>
+
                     <!-- ER図の説明 -->
-                    <p>以下のER図は、異なるデータベースに格納されたテーブルを示しており、各データベースが特定の機能に特化し、独立してデータを管理しています。
-                    <br>テーブルがそれぞれ独立しているため、今回のER図にはテーブル間の関連性を示す線がありません。</p>
+                    <p>以下のER図は、異なるデータベースに格納されたテーブルを示しており、各データベースが特定の機能に特化し、独立してデータを管理しています。<br>テーブルがそれぞれ独立しているため、今回のER図にはテーブル間の関連性を示す線がありません。</p>
                     <!-- データベースの役割の説明 -->
                     <p><strong>quiz_database:</strong> このデータベースは問題文と選択肢、正答を管理しています。</p>
                     <p><strong>Statistics.db:</strong> このデータベースはクイズに関する統計情報を管理するために特化しています。回答にかかった時間と正解数で、ユーザーのパフォーマンスを追跡し、分析するための情報を保持します。</p>    
-
+                
                     <!-- ER図の画像 -->
                     <img src="ERD.png" alt="ER図">
                 </section>
+                
 
                 <section id="table-description">
                     <h2>テーブルの説明</h2>
@@ -145,7 +166,7 @@
                         <tr>
                             <td>id</td>
                             <td>INT</td>
-                            <td>タブ名とボタンIDから決められる一意の識別子</td>
+                            <td>問題リストの一意の識別子</td>
                         </tr>
                         <tr>
                             <td>question</td>
@@ -189,7 +210,7 @@
                         <tr>
                             <td>id</td>
                             <td>INT</td>
-                            <td>レコードを特定するための一意の識別子</td>
+                            <td>統計データの一意の識別子</td>
                         </tr>
                         <tr>
                             <td>timeTaken</td>
@@ -289,7 +310,9 @@ public List<Data_Quiz> searchQuizQuestions(String query) {
     List<Data_Quiz> matchedQuestions = new ArrayList<>();
     SQLiteDatabase db = this.getReadableDatabase();
 
-    Cursor cursor = db.rawQuery("SELECT * FROM quiz_questions WHERE question LIKE ?", new String[]{"%" + query + "%"});
+    Cursor cursor = db.rawQuery("SELECT * FROM quiz_questions 
+                            WHERE question LIKE ?", new String[]{"%" + query + "%"}
+    );
 
     if (cursor.moveToFirst()) {
         do {
@@ -418,6 +441,34 @@ public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
     onCreate(db);</strong>
 }
 </code></pre>
+                </section>
+
+                <!-- ネットワーク構成図 -->
+                <section id="network-configuration">
+                    <h2>問題データ更新時のネットワーク構成図(未実装)</h2>
+                    <p>初回ダウンロード以降に問題データを更新する場合には、インターネットを通じて更新データをダウンロードしていただきます。この機能は未実装ですが、将来的にユーザーが最新の問題データを容易に取得できるようにする計画です。</p>
+                    <div style="display:flex;justify-content:space-around;align-items:center;">
+                        <!-- Webサーバーをレンタルする場合 -->
+                        <div>
+                            <h3>Webサーバーをレンタルする場合</h3>
+                            <img src="Network-page2.drawio.png" alt="レンタルサーバーのネットワーク構成図" style="max-width:100%;height:auto;">
+                            <p>レンタルサーバーを使用する場合、サービスプロバイダが提供するサーバー上にWebサイトのデータを配置します。これにより、メンテナンスやセキュリティ対策などの面で利便性が高まります。</p>
+                        </div>
+                
+                        <!-- Apacheを使って自分のPCでWebサーバーを立てる場合 -->
+                        <div>
+                            <h3>自分のPCでWebサーバーを立てる場合</h3>
+                            <img src="Network-page1.drawio.png" alt="自宅PCのApacheサーバーのネットワーク構成図" style="max-width:100%;height:auto;">
+                            <p>Apacheを使用して自分のPC上にWebサーバーを構築する場合、フルコントロールが可能ですが、セキュリティの設定や電力供給などの面で自己管理が必要になります。</p>
+                        </div>
+                    </div>
+                </section>
+
+                <section id="admin-site">
+                    <h2>管理者用サイトによる問題データの更新(未実装)</h2>
+                    <p>セキュリティを確保するために、専用の管理者用サイトを設け、そこから問題データの更新を行う予定です。このサイトは、認証プロセスを経てのみアクセス可能とし、不正アクセスやデータの漏洩を防ぐためのセキュリティ対策を施します。</p>
+                    <p>管理者用サイトでは、新しい問題の追加、既存問題の編集、問題データのバックアップなど、問題データに関する全ての管理作業を行うことができます。また、ユーザーはポートフォリオのウェブサイトを通じて、最新の問題データに更新されたアプリをダウンロードできるようになります。</p>
+                    <p>このアプローチにより、管理者は問題データの更新作業を安全かつ効率的に行うことができ、ユーザー体験の向上にも寄与します。</p>
                 </section>
             </main>
 

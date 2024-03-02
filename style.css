@@ -184,27 +184,44 @@ tr:hover {
     background-color: #f5f5f5; /* ホバー時の背景色 */
 }
 
-/* 画面幅が450px以下の場合に画像サイズを小さくする */
-@media (max-width: 450px) {
+/* 画面幅が600px以下の場合 */
+@media (max-width: 600px) {
+    body {
+        padding-bottom: 30px; /* スマホ画面ではフッターとの余白を減らす */
+    }
+
+    .to-top {
+        bottom: 10px; /* ボタンを下から10pxの位置に配置 */
+        right: 10px; /* 右から10pxの位置に配置 */
+        padding: 8px 12px; /* パディングを少し小さく */
+        font-size: 14px; /* フォントサイズを小さく */
+    }
+
+    header h1 {
+        font-size: 20px; /* ヘッダーのフォントサイズを小さく */
+    }
+
+    .main-content {
+        margin-top: 80px; /* ヘッダーの高さに合わせて上マージンを調整 */
+    }
+
+    nav ul li a {
+        padding: 0 3px; /* ナビゲーションリンクのパディングを減らす */
+        font-size: 14px; /* ナビゲーションリンクのフォントサイズを小さく */
+    }
+
     .screen img {
-        width: 80px; /* 小さな画面用のサイズに調整 */
+        width: 100%; /* 画像を画面幅に合わせて調整 */
+        max-width: 100%; /* 画像がコンテナを超えないようにする */
     }
+    
+    section {
+        padding: 15px; /* セクションのパディングを調整 */
+    }
+
 }
 
-/* 画面幅が450px以下の場合に適用されるスタイル */
-@media (max-width: 450px) {
-    .body {
-        font-size: 14px;
-    }
-}
-
-/* 画面幅が451px以上の場合に適用されるスタイル */
-@media (min-width: 451px) {
-    .body {
-        font-size: 16px;
-    }
-}
-
+/* フローチャート */
 .flowchart-horizontal {
     display: flex;
     align-items: center;
